@@ -1,0 +1,33 @@
+- name: Install Python, Pip, and Flask
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure Python is installed
+      apt:
+        name: python3
+        state: present
+
+    - name: Ensure Pip is installed
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Ensure Flask is installed
+      pip:
+        name: flask
+        state: present
+
+    - name: Ensure PostgreSQL is installed
+      apt:
+        name: postgresql
+        state: present
+
+    - name: Ensure psycopg2 is installed
+      pip:
+        name: psycopg2-binary
+        state: present
+
+    - name: Ensure SendGrid is installed
+      pip:
+        name: sendgrid
+        state: present
